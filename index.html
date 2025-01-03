@@ -1,163 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksim Kolotilov - Junior Python Developer</title>
+    <meta charset="UTF-8" />
+    <title>cv - Maksim Kolotilov</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /* ========== RESET STYLES ========== */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        /* Контейнер общего блока контактов */
+
+
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
             color: #333;
+            background-color: #f0f2f5;
+            line-height: 1.5;
         }
-        header {
-            background-color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #eee;
-        }
-        header img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        h1 {
-            font-size: 32px;
-            margin: 0;
-        }
-        h2 {
-            font-size: 24px;
-            color: #333;
-        }
-        .contact-info, .professional-summary, .key-skills, .projects, .education, .languages, .additional-info, .career-objectives, .expected-salary {
-            background-color: #ffffff;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info p, .contact-info a {
-            margin: 5px 0;
-        }
-        .contact-info a {
+
+        a {
             color: #333;
             text-decoration: none;
         }
-        .contact-info a:hover {
+
+        a:hover {
             text-decoration: underline;
         }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 0.5em;
         }
-        li {
-            padding: 5px 0;
+
+        .section-block {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-        .section-title {
-            font-size: 18px;
+
+        #sec2 {
+            background-color: #e1e2ff;
+            
+        }
+
+        .section-block h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-block h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #5e60ce;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Два столбца */
+            gap: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contacts-left,
+        .contacts-right {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* Расстояние между элементами внутри колонки */
+        }
+
+        .contacts-left a,
+        .contacts-right a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contacts-left a:hover,
+        .contacts-right a:hover {
+            color: #5e60ce;
+        }
+
+        /* Адаптивность для узких экранов */
+        @media (max-width: 600px) {
+            .contacts-grid {
+                grid-template-columns: 1fr;
+                /* Один столбец на мобильных устройствах */
+                text-align: center;
+            }
+        }
+
+        /* ========== CONTAINER & LAYOUT ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ===== HEADER (в стиле Skillbox) ===== */
+        header {
+            background: #5e60ce;
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            font-size: 2rem;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        .section-content {
-            margin-left: 20px;
+
+        .position {
+            font-style: bold;
+            margin-bottom: 15px;
         }
-        .key-skills ul {
+
+        .contacts {
+            line-height: 1.7;
+        }
+
+        .contacts a {
+            margin-right: 15px;
+            color: #ffd166;
+            /* Accent color */
+            text-decoration: underline;
+        }
+
+        /* ===== SECTION-BLOCK (каждый раздел как блок) ===== */
+        .section-block {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-block h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-block h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #5e60ce;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .section-block p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .section-block .info-block {
+            margin-bottom: 15px;
+        }
+
+        .section-block .list-group {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section-block .list-group li {
+            margin-bottom: 8px;
+        }
+
+        /* ========== PROJECT CARDS IN A ROW ========== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 карточки в ряд */
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            padding: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            /* Вертикальная структура внутри карточки */
+            justify-content: space-between;
+
+            /* Чтобы карточки были приблизительно одинакового размера */
+            min-height: 280px;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #5e60ce;
+        }
+
+        .project-short-desc {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #666;
+            flex-grow: 1;
+            /* Чтобы описания занимали доступное место и «толкали» кнопку вниз */
+        }
+
+        /* ===== STACK BADGES ===== */
+        .project-stack-list {
             display: flex;
             flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
         }
-        .key-skills li {
-            width: 48%;
-            margin-right: 2%;
+
+        .project-stack {
+            background-color: #e8e8fe;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: #5e60ce;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            align-self: flex-start;
+            /* Кнопка не растягивается на всю ширину */
+        }
+
+        .read-more-btn:hover {
+            background-color: #4b4dac;
+        }
+
+        /* ========== MODAL WINDOW ========== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(50%);
+            display: none;
+            /* Hidden by default */
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .modal {
+            background-color: #fff;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            position: relative;
+            animation: slideDown 0.3s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .modal h3 {
+            margin-top: 0;
             margin-bottom: 10px;
+            color: #5e60ce;
         }
-        .key-skills li:nth-child(2n) {
-            margin-right: 0;
+
+        /* ========== RESPONSIVENESS ========== */
+        @media (max-width: 1200px) {
+
+            /* При уменьшении экрана, пусть карточки перестраиваются по 2 в строке */
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            /* На совсем маленьком экране — по одной карточке в ряд */
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .list-group {
+                padding-left: 15px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <img src="1.jpg" alt="Maksim Kolotilov">
-    <h1>Maksim Kolotilov</h1>
-    <h2>Junior Python Developer</h2>
-</header>
+    <div class="container">
+        <!-- ========== HEADER ========== -->
+        <header>
+            <div class="name">Maksim Kolotilov</div>
+            <div class="position">Python Developer</div>
 
-<section class="contact-info">
-    <h2 class="section-title">Contact Information</h2>
-    <p>📞 <a href="tel:+34695406941">+34 695 406 941</a></p>
-    <p>✉️ <a href="mailto:jobkolot@gmail.com">jobkolot@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/kolotjob" target="_blank">LinkedIn</a> | <a href="https://github.com/Kolotjob" target="_blank">GitHub</a></p>
-</section>
+        </header>
 
-<section class="professional-summary">
-    <h2 class="section-title">Professional Summary</h2>
-    <p>Highly motivated developer with a proven ability to work independently and collaboratively on challenging projects. Experienced in creating Telegram bots, web applications, and responsive landing pages. Committed to continuous learning and eager to develop skills further in complex and innovative projects.</p>
-</section>
+        <!-- ========== PROFESSIONAL SUMMARY ========== -->
+        <section class="section-block">
+            <h2>Professional Summary</h2>
+            <p>
+                Highly motivated developer with a proven ability to work independently and collaboratively on
+                challenging projects.
+                Experienced in creating Telegram bots, web applications, and responsive landing pages. Committed to
+                continuous
+                learning and eager to develop skills further in complex and innovative projects.
+            </p>
+        </section>
 
-<section class="key-skills">
-    <h2 class="section-title">Key Skills</h2>
-    <ul>
-        <li><strong>Programming Languages:</strong> Python (Proficient), JavaScript (Beginner), HTML (Proficient), CSS (Proficient)</li>
-        <li><strong>Frameworks and Libraries:</strong> aiogram (Excellent), Tortoise ORM (Intermediate), Flask API (Beginner), React (Beginner)</li>
-        <li><strong>Databases:</strong> SQL (Beginner)</li>
-        <li><strong>Tools and Platforms:</strong> Docker (Beginner), Server Deployment (Proficient), Git (Intermediate)</li>
-        <li><strong>Additional Skills:</strong> Developing Telegram bots, Building responsive landing pages, SEO optimization</li>
-        <li><strong>Soft Skills:</strong> Adaptability, Time management, Strong communication, and teamwork skills</li>
-    </ul>
-</section>
+        <!-- ========== KEY SKILLS ========== -->
+        <section class="section-block">
+            <h2>Key Skills</h2>
+            <ul class="list-group">
+                <li><strong>Programming Languages:</strong> Python (Proficient), JavaScript (Beginner), HTML
+                    (Proficient), CSS (Proficient)</li>
+                <li><strong>Frameworks & Libraries:</strong> aiogram (Excellent), Tortoise ORM (Intermediate), Flask API
+                    (Beginner), React (Beginner)</li>
+                <li><strong>Databases:</strong> SQL (Proficient), PostgreSQL (Beginner)</li>
+                <li><strong>Tools & Platforms:</strong> Docker (Beginner), Server Deployment (Proficient), Git
+                    (Intermediate)</li>
+                <li><strong>Additional Skills:</strong> Developing Telegram bots, Building responsive landing pages, SEO
+                    optimization</li>
+                <li><strong>Soft Skills:</strong> Adaptability, Time management, Strong communication, Teamwork</li>
+            </ul>
+        </section>
 
-<section class="projects">
-    <h2 class="section-title">Projects</h2>
-    <ul>
-        <li><strong>Telegram User Bot for Monitoring Channels:</strong> Developed a bot to monitor specific Telegram channels and copy new posts to personal channels.</li>
-        <li><strong>Payment Acceptance Bot:</strong> Created a bot for accepting payments with a semi-automated process and integration with the Yoomoney payment gateway.</li>
-        <li><strong>Telegram Bot for Managing Requests and Messaging:</strong> Built a bot to manage requests in channels and send bulk messages to users.</li>
-        <li><strong>Responsive Landing Pages:</strong> Designed and developed responsive and SEO-optimized landing pages for various purposes.</li>
-    </ul>
-</section>
+        <!-- ========== PROJECTS (4 CARDS IN A ROW) ========== -->
+        <section class="section-block">
+            <h2>Projects</h2>
+            <div class="projects">
+                <!-- CARD 1 -->
+                <div class="project-card" data-modal="modal1">
+                    <div>
+                        <div class="project-name">Telegram Bot for Payment Processing</div>
+                        <div class="project-short-desc">A Telegram bot that automates payment handling via YooMoney API.
+                        </div>
+                        <div class="project-stack-list">
+                            <span class="project-stack">Python</span>
+                            <span class="project-stack">aiogram</span>
+                            <span class="project-stack">YooMoney API</span>
+                            <span class="project-stack">MySQL</span>
+                        </div>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
 
-<section class="education">
-    <h2 class="section-title">Education</h2>
-    <ul>
-        <li><strong>Skillbox:</strong> Full Stack Development (Python)</li>
-        <li><strong>Coursera:</strong> Back End Development (Python)</li>
-    </ul>
-</section>
+                <!-- CARD 2 -->
+                <div class="project-card" data-modal="modal2">
+                    <div>
+                        <div class="project-name">Telegram Bot Priem</div>
+                        <div class="project-short-desc">A bot constructor for subscription management in groups and
+                            channels.</div>
+                        <div class="project-stack-list">
+                            <span class="project-stack">Python</span>
+                            <span class="project-stack">aiogram</span>
+                            <span class="project-stack">MySQL</span>
+                        </div>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
 
-<section class="languages">
-    <h2 class="section-title">Languages</h2>
-    <ul>
-        <li><strong>Russian:</strong> Native</li>
-        <li><strong>English:</strong> B1-B2</li>
-        <li><strong>Spanish:</strong> A2</li>
-    </ul>
-</section>
+                <!-- CARD 3 -->
+                <div class="project-card" data-modal="modal3">
+                    <div>
+                        <div class="project-name">Telegram User Bot for Content Copying</div>
+                        <div class="project-short-desc">Automation of content copying from various channels.</div>
+                        <div class="project-stack-list">
+                            <span class="project-stack">Python</span>
+                            <span class="project-stack">Telethon</span>
+                            <span class="project-stack">SQLite</span>
+                        </div>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
 
-<section class="additional-info">
-    <h2 class="section-title">Additional Information</h2>
-    <ul>
-        <li>Strong communication and teamwork skills.</li>
-        <li>Positive and supportive team player.</li>
-        <li>Detail-oriented problem solver.</li>
-        <li>Thrives in critical situations.</li>
-        <li>Passionate about personal projects and continuous skill improvement.</li>
-    </ul>
-</section>
+                <!-- CARD 4 -->
+                <div class="project-card" data-modal="modal4">
+                    <div>
+                        <div class="project-name">Responsive Landing Pages</div>
+                        <div class="project-short-desc">SEO-optimized, responsive pages for diverse businesses.</div>
+                        <div class="project-stack-list">
+                            <span class="project-stack">HTML</span>
+                            <span class="project-stack">CSS</span>
+                            <span class="project-stack">JavaScript</span>
+                        </div>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+        </section>
 
-<section class="career-objectives">
-    <h2 class="section-title">Career Objectives</h2>
-    <p>I aim to join a company where I can grow as a developer by working on real-world projects under the guidance of experienced professionals. My goal is to build confidence and expand my skills while contributing to the team’s success. Open to internship roles and junior developer positions that emphasize learning and gradual responsibility.</p>
-</section>
+        <!-- ========== EDUCATION ========== -->
+        <section class="section-block">
+            <h2>Education</h2>
+            <div class="info-block">
+                <p><strong>Skillbox:</strong> Full Stack Development (Python)</p>
+                <p><strong>Coursera:</strong> Back End Development (Python)</p>
+            </div>
+        </section>
 
-<section class="expected-salary">
-    <h2 class="section-title">Expected Salary</h2>
-    <p>€900 after taxes.</p>
-</section>
+        <!-- ========== LANGUAGES ========== -->
+        <section class="section-block">
+            <h2>Languages</h2>
+            <ul class="list-group">
+                <li><strong>Russian:</strong> Native</li>
+                <li><strong>English:</strong> B1-B2</li>
+                <li><strong>Spanish:</strong> A2</li>
+            </ul>
+        </section>
 
+        <!-- ========== ADDITIONAL INFORMATION ========== -->
+        <section class="section-block">
+            <h2>Additional Information</h2>
+            <ul class="list-group">
+                <li>Strong communication and teamwork skills</li>
+                <li>Positive, supportive attitude</li>
+                <li>Detail-oriented problem solver</li>
+                <li>Thrives in critical situations</li>
+                <li>Passionate about personal projects and continuous skill improvement</li>
+            </ul>
+        </section>
+
+        <!-- ========== CAREER OBJECTIVES ========== -->
+        <section class="section-block">
+            <h2>Career Objectives</h2>
+            <p>
+                I aim to join a company where I can grow as a developer by working on real-world projects under the
+                guidance of
+                experienced professionals. My goal is to build confidence and expand my skills while contributing to the
+                team’s
+                success. I am open to internships and junior developer positions that emphasize learning and gradual
+                responsibility.
+            </p>
+        </section>
+
+
+        <!-- ========== EXPECTED SALARY ========== -->
+        <section class="section-block">
+            <h2>Expected Salary</h2>
+            <p>€900 (after taxes)</p>
+        </section>
+        <section class="section-block" id="sec2">
+            <h2>Contacts</h2>
+            <div class="contacts-grid">
+              <!-- Левая колонка -->
+              <div class="contacts-left">
+                <div>Kolotilov Maksim</div>
+                <div>Phone: +34 695 406 941</div>
+                <div>
+                  Email:
+                  <a href="mailto:jobkolot@gmail.com">jobkolot@gmail.com</a>
+                </div>
+              </div>
+              <!-- Правая колонка -->
+              <div class="contacts-right">
+                <div>
+                  <a href="https://www.linkedin.com/in/max-kolot-79506b343" target="_blank">LinkedIn</a>
+                </div>
+                <div>
+                  <a href="https://github.com/Kolotjob" target="_blank">GitHub</a>
+                </div>
+                <div>
+                  <a href="https://t.me/juicykolot" target="_blank">Telegram</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+    </div>
+
+    <!-- ========== MODALS ========== -->
+
+    <!-- MODAL 1 -->
+    <div id="modal1" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close-btn" data-close="modal1">×</button>
+            <h3>Project 1: Telegram Bot for Payment Processing</h3>
+            <p><strong>Role:</strong> Full-cycle development (Backend + Integration)</p>
+            <p><strong>Duration:</strong> 2 months</p>
+            <p>
+                <strong>Project Description:</strong><br />
+                Developed a Telegram bot that automates payment acceptance using YooMoney API. After successful payment,
+                users received their virtual goods.
+            </p>
+            <p>
+                <strong>Key Responsibilities:</strong><br />
+                - Integration of YooMoney API for automated payment handling.<br />
+                - Semi-automatic transaction verification, enabling admins to approve or decline payments.<br />
+                - Automated issuance of virtual goods after successful payment confirmation.<br />
+                - Creation of an admin panel for managing subscriptions and payments.
+            </p>
+            <p>
+                <strong>Technologies & Tools:</strong><br />
+                - Language: Python<br />
+                - Framework: aiogram<br />
+                - Integration: YooMoney API<br />
+                - Database: MySQL
+            </p>
+            <p>
+                <strong>Outcomes:</strong><br />
+                - Reduced payment processing time by 80% through automation.<br />
+                - Enhanced reliability and transparency of transactions.<br />
+                - Flexible architecture for future expansions.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 2 -->
+    <div id="modal2" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close-btn" data-close="modal2">×</button>
+            <h3>Project 2: Telegram Bot Priem</h3>
+            <p><strong>Role:</strong> Full-cycle development</p>
+            <p><strong>Duration:</strong> 4 months</p>
+            <p>
+                <strong>Project Description:</strong><br />
+                Developed a Telegram bot constructor that allows users to create their own bot instances to track
+                channel activities.
+                The bot also automates subscription requests, manages ad campaigns, and saves message templates.
+            </p>
+            <p>
+                <strong>Key Responsibilities:</strong><br />
+                - Building a mechanism to generate bot instances for group/channel usage.<br />
+                - Automating the subscription request process.<br />
+                - Adding functionality for scheduling message campaigns and saving templates.<br />
+                - Switching to webhooks to handle high loads more efficiently.<br />
+                - Ensuring 24/7 stability.
+            </p>
+            <p>
+                <strong>Technologies & Tools:</strong><br />
+                - Language: Python<br />
+                - Framework: aiogram<br />
+                - Database: MySQL
+            </p>
+            <p>
+                <strong>Outcomes:</strong><br />
+                - Increased audience engagement by 40% through automated subscription handling.<br />
+                - Improved ad campaign effectiveness with message templates.<br />
+                - Reduced response times by 50% using webhooks.<br />
+                - Scalable architecture for future expansions.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 3 -->
+    <div id="modal3" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close-btn" data-close="modal3">×</button>
+            <h3>Project 3: Telegram User Bot for Content Copying</h3>
+            <p><strong>Role:</strong> Full-cycle development (Backend + Architecture)</p>
+            <p><strong>Duration:</strong> 1 month</p>
+            <p>
+                <strong>Project Description:</strong><br />
+                Created a Telegram bot to automatically copy content from different channels.
+                The bot monitored new publications, copied media files, added custom descriptions,
+                and published them to a specified channel. Future plans include AI integration for generating unique
+                descriptions.
+            </p>
+            <p>
+                <strong>Key Responsibilities:</strong><br />
+                - Monitoring channels and automatically copying media content.<br />
+                - Adding custom descriptions before publishing.<br />
+                - Managing publications in the target channel.<br />
+                - Preparing for AI integration to generate unique content.
+            </p>
+            <p>
+                <strong>Technologies & Tools:</strong><br />
+                - Language: Python<br />
+                - Library: Telethon<br />
+                - Database: SQLite
+            </p>
+            <p>
+                <strong>Outcomes:</strong><br />
+                - Lowered content management costs through full automation.<br />
+                - Improved advertising budgets by optimizing content management expenses.<br />
+                - Architecture ready for scalable AI integration in the future.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- MODAL 4 -->
+    <div id="modal4" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close-btn" data-close="modal4">×</button>
+            <h3>Project 4: Responsive Landing Pages</h3>
+            <p><strong>Role:</strong> Full-cycle development</p>
+            <p><strong>Duration:</strong> 3 months</p>
+            <p>
+                <strong>Project Description:</strong><br />
+                Designed and built responsive, SEO-optimized landing pages for multiple clients and businesses.
+                The goal was to deliver visually appealing, mobile-friendly websites that rank well in search engines.
+            </p>
+            <p>
+                <strong>Key Responsibilities:</strong><br />
+                - Designing and coding fully responsive landing pages.<br />
+                - SEO optimization to increase organic traffic.<br />
+                - Ensuring cross-browser and mobile compatibility.
+            </p>
+            <p>
+                <strong>Technologies & Tools:</strong><br />
+                - Languages: HTML, CSS, JavaScript<br />
+                - SEO Tools: Google Analytics, Google Search Console
+            </p>
+            <p>
+                <strong>Outcomes:</strong><br />
+                - Boosted organic traffic by 30% through SEO improvements.<br />
+                - Achieved consistent mobile responsiveness across devices.<br />
+                - Increased client satisfaction with fast, aesthetically pleasing layouts.
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        // Get all project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        // Get all "Read More" buttons
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        // Get all modal overlays
+        const modals = document.querySelectorAll('.modal-overlay');
+        // Get all close buttons
+        const closeButtons = document.querySelectorAll('.modal-close-btn');
+
+        // Function to open a modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Open modal when clicking on a project card
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (card.dataset.modal) {
+                    openModal(card.dataset.modal);
+                }
+            });
+        });
+
+        // Open modal when clicking on the "Read More" button (stop event from bubbling up)
+        readMoreButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parentCard = btn.closest('.project-card');
+                if (parentCard && parentCard.dataset.modal) {
+                    openModal(parentCard.dataset.modal);
+                }
+            });
+        });
+
+        // Close modal when clicking on the close button (the "×")
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modalId = btn.dataset.close;
+                closeModal(modalId);
+            });
+        });
+
+        // Close modal when clicking outside the modal (on overlay)
+        modals.forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
